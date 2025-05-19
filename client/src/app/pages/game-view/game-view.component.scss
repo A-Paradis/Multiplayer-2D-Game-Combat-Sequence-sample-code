@@ -1,0 +1,214 @@
+.game-view {
+    position: relative;
+    height: 100%;
+    padding: 1.25rem;
+    text-align: center;
+    background: url('../../../assets/images/beige-blurred.jpg') center top / cover no-repeat;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+    h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: var(--primary-200);
+        font-family: 'NameFont';
+    }
+
+    .game-settings {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .game-size,
+    .player-number {
+        margin-top: 2.5vh;
+    }
+
+    .player-info {
+        position: absolute;
+        left: 1rem;
+        background-color: var(--primary-600);
+        padding: 1rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        width: 10vw;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        z-index: 10;
+
+        h2 {
+            font-size: 2rem;
+            font-family: 'NameFont';
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        h3 {
+            font-size: 2rem;
+            font-family: 'NameFont';
+            margin-bottom: 5px;
+        }
+
+        .stats,
+        .dice,
+        .moves-actions,
+        .inventory {
+            width: 90%;
+            text-align: start;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .action-button {
+            width: 100%;
+            padding: 8px 12px;
+            font-size: 15px;
+            font-family: 'NameFont';
+            color: white;
+            background-color: var(--primary-900);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition:
+                background-color 0.3s ease-in-out,
+                transform 0.1s ease-in-out;
+
+            &:active {
+                transform: scale(0.98);
+            }
+        }
+
+        .inventory-boxes {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .inventory-box {
+            width: 4vw;
+            height: 5vh;
+            border: 2px solid #333;
+            background-color: #16989895;
+            border-radius: 8px;
+        }
+    }
+
+    .player-list {
+        position: absolute;
+        right: 1rem;
+        background-color: var(--primary-600);
+        padding: 0.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        width: 10vw;
+        height: 40vh;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .player-card {
+        display: flex;
+        align-items: center;
+        background: var(--primary-700);
+        padding: 2px;
+        margin-bottom: 8px;
+        border-radius: 10px;
+        flex: 1;
+    }
+
+    .player-description {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .player-avatar {
+        width: 2vw;
+        height: 2.5vw;
+        margin-right: 0.5rem;
+    }
+
+    .player-name {
+        font-size: 1rem;
+        color: white;
+        font-family: 'NameFont';
+        margin-bottom: 0.25rem;
+    }
+
+    .timer {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        text-align: left;
+
+        h4 {
+            font-family: 'NameFont';
+            background-color: var(--primary-500);
+            border-radius: 10px;
+            font-size: 1.8rem;
+            padding: 10px;
+        }
+    }
+
+    .leave-game {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-family: 'NameFont';
+        background-color: rgb(145, 0, 0);
+        border-radius: 10px;
+        font-size: 1.5rem;
+        padding: 8px;
+        cursor: pointer;
+        border: none;
+        color: white;
+    }
+    /* New CSS for centering the board */
+    .board-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: auto;
+    }
+}
+
+.chat-box {
+    position: absolute;
+    bottom: 30px;
+    right: 1rem;
+}
+.active-player {
+    border: 2px solid #00ff00;
+}
+
+.left-player .player-name {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.organizer-badge {
+    color: gold;
+    margin-right: 4px;
+}
+
+.flag-indicator {
+    margin-left: 4px;
+}
+
+.player-wins {
+    font-size: small;
+    color: var(--primary-300);
+    margin-bottom: 0.25rem;
+}

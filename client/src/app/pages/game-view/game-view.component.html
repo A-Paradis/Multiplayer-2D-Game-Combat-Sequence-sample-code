@@ -1,0 +1,81 @@
+<div class="game-view">
+    <div class="game-settings">
+        <p class="game-size">Taille du jeu : {{ boardSize }}x{{ boardSize }}</p>
+        <h1>
+            {{ this.message }}
+        </h1>
+        <p class="player-number">Nombre de joueurs : {{ players.length }}</p>
+    </div>
+    <div class="player-info">
+        <h2>{{ myPlayer.name }}</h2>
+        <img [src]="myPlayer.avatar" alt="Avatar" class="avatar" />
+
+        <div class="stats">
+            <p><strong>Vie:</strong> {{ isBonusLife ? 6 : 4 }}</p>
+            <p><strong>Rapidité:</strong> {{ isBonusLife ? 4 : 6 }}</p>
+            <p><strong>Attaque:</strong>{{ myPlayer.attackDice }}</p>
+            <p><strong>Défense:</strong>{{ myPlayer.defenseDice }}</p>
+        </div>
+
+        <div class="dice">
+            <p><strong>Type de Attaque:</strong> {{ myPlayer.attackDice }}</p>
+            <p><strong>Type de Défense:</strong> {{ myPlayer.defenseDice }}</p>
+        </div>
+
+        <div class="moves-actions">
+            <p><strong>Moves:</strong> {{ moves }}</p>
+            <p><strong>Actions:</strong> {{ actions }}</p>
+            @if (currentPlayer === myPlayer.name) {
+                <button class="action-button" (click)="onAction()">Action</button>
+            }
+        </div>
+
+        <div class="inventory">
+            <h3>Inventaire</h3>
+            <div class="inventory-boxes">
+                <div *ngFor="let item of [0, 1]" class="inventory-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 'active-player': player.name === currentPlayer, -->
+    <div class="player-list">
+        <div
+            *ngFor="let player of players"
+            class="player-card"
+            [ngClass]="{
+                'active-player': player.name === currentPlayer,
+                'left-player': player.hasLeft
+            }"
+        >
+            <img [src]="player.avatar" alt="Avatar" class="player-avatar" />
+
+            <div class="player-description">
+                <p class="player-name">
+                    <!-- Indicateur pour l'organisateur -->
+                    <span *ngIf="player.isOrganizer" class="organizer-badge" title="Organisateur">★</span>
+                    {{ player.name }}
+                </p>
+                <p class="player-wins">Victoires:{{ player.victories || 0 }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Board -->
+    @if (board !== undefined) {
+    <div class="board-container">
+        <app-base-board [size]="boardSize" [tileLayout]="board"> </app-base-board>
+    </div>
+    }
+
+    <app-chat-zone class="chat-box"></app-chat-zone>
+
+    <div class="timer">
+        <app-timer [accessCode]="gameCode"></app-timer>
+        @if (currentPlayer === myPlayer.name) {
+        <button (click)="finishTurnEarly()">Finir</button>
+        }
+    </div>
+
+    <button class="button leave-game" (click)="confirmExit()">Quitter</button>
+</div>
