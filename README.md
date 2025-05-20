@@ -2,6 +2,7 @@
 
 This repository contains a selection of sample code I personally contributed to as part of a collaborative project for a 2D multiplayer indie game.
 Due to collaborative considerations and team ownership, I’m only sharing portions of the code that I wrote myself. While this was a team project, I primarily focused on the backend development using TypeScript and NestJS.
+However, I did implement a minimal UI for the combat sequence using TypeScript and Angular Material. 
 
 My Contributions
 - Implemented player-vs-player combat logic and real-time state sync
