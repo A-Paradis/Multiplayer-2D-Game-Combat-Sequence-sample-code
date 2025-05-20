@@ -1,0 +1,21 @@
+<div class="combat-dialog">
+    <div mat-dialog-content class="dialog-content">
+        <div class="turn-info">
+            <div class="active-message">
+                @if (activeMessage) {
+                <p>
+                    {{ activeMessage }}
+                </p>
+                }
+            </div>
+            <div class="remaining-time">
+                <p><strong>Temps de tour restant:</strong> {{ timer }} secondes</p>
+            </div>
+        </div>
+    </div>
+
+    <div mat-dialog-actions class="dialog-actions">
+        <button mat-button [disabled]="isDisabled" (click)="onAttack()">Attaque!</button>
+        <button mat-button [disabled]="isDisabled" (click)="onEscape()">Évade-toi!</button>
+    </div>
+</div>
