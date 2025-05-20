@@ -10,9 +10,9 @@ My Contributions
 - Collaborated using GitLab in an Agile workflow
 
 The goal of this repo is to highlight my experience working with:
-TypeScript and Angular for the frontend
-TypeScript and NestJS for the backend
-Real-time multiplayer logic and client-server state sync
-Deployment on AWS EC2 with MongoDB for persistance
+- TypeScript and Angular for the frontend
+- TypeScript and NestJS for the backend
+- Real-time multiplayer logic and client-server state sync
+- Deployment on AWS EC2 with MongoDB for persistance
 
 This project represents a snapshot of my skills at the time. Although I don’t plan to continue developing it, it was a rewarding opportunity to grow in backend development, multiplayer logic, and collaborative software engineering.
